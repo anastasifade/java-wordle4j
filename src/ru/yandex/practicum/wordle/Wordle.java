@@ -82,7 +82,7 @@ public class Wordle {
         System.out.println("Игра началась.");
 
         while (!game.isOver()) {
-            System.out.printf("Попытка %d/%d: ", game.getSteps() + 1, MAX_ATTEMPTS);
+            System.out.printf("Попытка %d/%d:", game.getSteps() + 1, MAX_ATTEMPTS);
             String guess = guess();
             try {
                 game.processGuess(guess);
@@ -104,23 +104,23 @@ public class Wordle {
 
     private static void printMenu() {
         separator();
-        System.out.println("   WORDLE");
+        System.out.println("WORDLE");
         System.out.println("1. Играть.");
         System.out.println("2. Правила.");
         System.out.println("3. Выход.");
-        System.out.print("Введите команду: ");
+        System.out.print("Введите команду:");
     }
 
     private static void printRules() {
         separator();
-        System.out.print(""" 
+        System.out.print("""
                             ПРАВИЛА:
                             Цель данной игры - угадать случайно загадонное слово длиной 5 символов.
                             Вам будет предложено ввести любое слово указанной длины.
                             После ввода Вам будет предоставлен набор из 5 символов, который позволит Вам понять,
                             насколько Вы были близки к верному ответу.
                             Значения символов представлены ниже:
-                            """);
+                            """.stripIndent());
         System.out.printf("[%s] - буква указана верно, на верной позиции.\n", CORRECT_LETTER_CORRECT_SPOT);
         System.out.printf("[%s] - буква присутствует в загаданном слове, но на другой позиции.\n",
                                                                             CORRECT_LETTER_WRONG_SPOT);
@@ -128,7 +128,7 @@ public class Wordle {
         System.out.println("Количество попыток в игре ограничено: всего можно совершить не более 6 попыток на одно слово.");
         System.out.println("Если Вы не можете придумать подходящее слово, попросите программу Вам помочь:\n" +
                            "нажмите ПРОБЕЛ, и программа выберет подходящее слово за Вас.");
-        System.out.print("Нажмите ENTER, чтобы вернуться в главное меню: ");
+        System.out.print("Нажмите ENTER, чтобы вернуться в главное меню:");
         scanner.nextLine();
     }
 
